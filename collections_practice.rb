@@ -45,3 +45,25 @@ end
 
 remove_non_strings(array_1)
 
+#Question 5 
+my_array = [{:name => "blake"}, {:name => "blake"}, {:name => "ashley"}]
+#EXPECTED RESULT {:name => "blake", :count => 2}, {:name => "ashley", :count => 1}
+
+def getOccurances(array)
+  array.group_by{|v| v[:name]}.map{|k,v| {name: k, count: v.length}}
+end 
+
+getOccurances(my_array)
+
+#Question 7 Cool Hashes 
+
+def find_cool(array)
+  container = []
+  array.each do |element|
+    container << element if element[:temperature] == "cool"
+  end
+  container
+end
+
+
+

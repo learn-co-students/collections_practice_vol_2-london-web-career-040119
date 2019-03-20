@@ -14,3 +14,30 @@ def contain_a(array)
   words_with_a
 
 end
+
+
+def first_wa(array)
+  array.each {|word| if word[0..1] == "wa" then return word end}
+end
+
+def remove_non_strings(array)
+
+  new_array = []
+  array.each {|word| if word.class == String then new_array << word end}
+  new_array
+
+end
+
+=begin
+Why can it not be like this?
+
+def remove_non_strings(array)
+  array.each do |word|
+    binding.pry
+    if word.class != String
+      array.delete(word)
+    end
+  end
+end
+
+=end

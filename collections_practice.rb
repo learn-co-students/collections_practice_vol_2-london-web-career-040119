@@ -29,10 +29,10 @@ def merge_data (key,data)
 #  end
 
   keys.each do |key|
-    data.each do |data_hash|
-      data_hash.each do |data_hash_key, data_hash_value|
-        if data_hash_key == key[:first_name]
-          merged_data << key.merge(data_hash_value)
+    data.each do |data|
+      data.each do |data_key, data_value|
+        if data_key == key[:first_name]
+          merged_data << key.merge(data_value)
         end
       end
     end
@@ -45,7 +45,9 @@ def find_cool(array)
 end
 
 def organize_schools(schools)
-  location = {}
-  schools.collect {|k,v| location [v[:location]] = []}
-  location.each {|k,v| schools.each {|k1,v1| if k == v1[:location] then v << k1 end }}
+  locations = {}
+  schools.collect {|k,v| locations [v[:location]] = []}
+  locations.each {|k,v| schools.each {|k1,v1| if k == v1[:location]
+  v << k1 
+  end }}
 end

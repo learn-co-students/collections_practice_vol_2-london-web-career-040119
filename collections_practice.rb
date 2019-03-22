@@ -47,7 +47,11 @@ end
 def organize_schools(schools)
   locations = {}
   schools.collect {|k,v| locations [v[:location]] = []}
-  locations.each {|k,v| schools.each {|k1,v1| if k == v1[:location]
-  v << k1 
-  end }}
+  locations.each do |k,v| 
+    schools.each do |k1,v1| 
+      if k == v1[:location]
+      v << k1 
+      end
+    end
+  end
 end
